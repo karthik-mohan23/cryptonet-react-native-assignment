@@ -4,6 +4,7 @@
 This React Native app utilizes Expo and React Three Fiber to create a simple mobile application that displays a 3D model of a walking character using the Three.js library.
 
 ## Screenshot:
+![Cryptonet](https://github.com/karthik-mohan23/cryptonet-react-native-assignment/assets/132973611/77cc0552-be63-4ba0-a664-be947a6be9c2)
 
 ## Installation:
 
