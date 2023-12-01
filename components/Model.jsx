@@ -4,7 +4,7 @@ import { useGLTF, useAnimations } from "@react-three/drei/native";
 export default function Model(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(
-    require("../assets/Model.glb")
+    require("../assets/Soldier.glb")
   );
   const { actions } = useAnimations(animations, group);
 
@@ -43,4 +43,4 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload(require("../assets/Model.glb"));
+useGLTF.preload(require("../assets/Soldier.glb"));
