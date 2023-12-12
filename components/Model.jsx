@@ -1,11 +1,31 @@
 import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei/native";
+import * as FileSystem from "expo-file-system";
 
 export default function Model(props) {
+  useEffect(() => {
+    downloadFromURL();
+  }, []);
+
+  const modelPath = "https://threejs.org/examples/models/gltf/Soldier.glb";
+  const downloadFromURL = async () => {
+    try {
+      const { uri } = await FileSystem.downloadAsync(
+        modelPath,
+        FileSystem.documentDirectory + "Soldier.glb"
+      );
+      console.log("Download successful. File URI:", uri);
+    } catch (error) {
+      console.error("Download failed:", error);
+    }
+  };
+
   const group = useRef();
+
   const { nodes, materials, animations } = useGLTF(
-    require("../assets/Soldier.glb")
+    `${FileSystem.documentDirectory}/Soldier.glb`
   );
+
   const { actions } = useAnimations(animations, group);
 
   //   useEffect(() => {
@@ -13,7 +33,10 @@ export default function Model(props) {
   //   }, [actions]);
 
   useEffect(() => {
-    actions["Armature|mixamo.com|Layer0"]?.play();
+    // Check if the "Idle" animation exists in the actions
+    if ("Walk" in actions) {
+      actions["Walk"].play();
+    }
   }, [actions]);
 
   return (
@@ -21,8 +44,8 @@ export default function Model(props) {
       <group name="Scene">
         <group
           name="Armature"
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
+          rotation={[1.5, Math.PI, 0]}
+          scale={0.02}
           position={[0, -1.5, 0]}>
           <skinnedMesh
             name="vanguard_Mesh"
@@ -43,4 +66,4 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload(require("../assets/Soldier.glb"));
+useGLTF.preload(`${FileSystem.documentDirectory}/Soldier.glb`);

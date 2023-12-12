@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber/native";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import Model from "./components/Model";
 
@@ -31,5 +31,6 @@ export default function App() {
 const styles = StyleSheet.create({
   modelContainer: {
     flex: 1,
+    marginTop: 80,
   },
 });

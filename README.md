@@ -3,6 +3,11 @@
 **Description:**
 This React Native app utilizes Expo and React Three Fiber to create a simple mobile application that displays a 3D model of a walking character using the Three.js library.
 
+## New Features:
+
+- **File Download and Animation:**
+  The app now supports downloading a 3D model file from a specified URL using Expo file storage. The downloaded file is then used to animate the walking character, enhancing the interactive experience.
+
 ## Screenshot:
 
 ## Installation:
