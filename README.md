@@ -9,6 +9,7 @@ This React Native app utilizes Expo and React Three Fiber to create a simple mob
   The app now supports downloading a 3D model file from a specified URL using Expo file storage. The downloaded file is then used to animate the walking character, enhancing the interactive experience.
 
 ## Screenshot:
+![Cryptonet](https://github.com/karthik-mohan23/cryptonet-react-native-assignment/assets/132973611/77cc0552-be63-4ba0-a664-be947a6be9c2)
 
 ## Installation:
 
